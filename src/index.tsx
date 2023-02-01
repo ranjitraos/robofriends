@@ -16,7 +16,7 @@ const logger = createLogger()
 const rootReducer = combineReducers({ searchRobots, requestRobots })
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger))
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <Provider store={store}>

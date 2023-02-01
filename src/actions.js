@@ -6,7 +6,7 @@ import {
     REQUEST_ROBOTS_SUCCESS
 } from "./constants";
 
-export const setSearchField = text => ({
+export const setSearchField = (text) => ({
     type: CHANGE_SEARCH_FIELD,
     payload: text
 })
