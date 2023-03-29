@@ -5,21 +5,21 @@ jobs:
   # Job one with a unique name
   build:
     docker:
-      - image: circleci/node:19.3
+      - image: cimg/base:2023.03
     steps:
       - run: echo "npm installing"
       - run: npm install
       - run: CI=true npm run build
   test:
     docker:
-      - image: circleci/node:19.3
+      - image: cimg/base:2023.03
     steps:
       - run: echo "running tests..."
       - run: npm install
       - run: npm test
   hithere:
     docker:
-      - image: circleci/node:19.3
+      - image: cimg/base:2023.03
     steps:
       - run: echo "helloooo!!!!"
 
