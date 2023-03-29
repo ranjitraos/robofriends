@@ -1,0 +1,24 @@
+# CircleCI configuration file
+version: 2.1
+
+jobs:
+  # Job one with a unique name
+  bobby:
+    docker:
+      - image: cimg/base:2022.05
+    steps:
+      - run: echo "Hellooooo!"
+  # Job two with a unique name
+  sally:
+    docker:
+     - image: cimg/base:2022.05
+    steps:
+      - run: echo "Double Trouble!"
+
+workflows:
+  # Name of workflow
+  bobby_sally:
+    # List of jobs that will run
+    jobs:
+      - bobby
+      - sally
