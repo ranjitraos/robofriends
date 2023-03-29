@@ -3,22 +3,33 @@ version: 2.1
 
 jobs:
   # Job one with a unique name
-  bobby:
+  build:
     docker:
-      - image: cimg/base:2022.05
+      - image: circleci/node:19.3
     steps:
-      - run: echo "Hellooooo!"
-  # Job two with a unique name
-  sally:
+      - run: echo "npm installing"
+      - run: npm install
+      - run: CI=true npm run build
+  test:
     docker:
-     - image: cimg/base:2022.05
+      - image: circleci/node:19.3
     steps:
-      - run: echo "Double Trouble!!!!"
+      - run: echo "running tests..."
+      - run: npm install
+      - run: npm test
+  hithere:
+    docker:
+      - image: circleci/node:19.3
+    steps:
+      - run: echo "helloooo!!!!"
 
 workflows:
   # Name of workflow
-  bobby_sally:
+  build_test_and_lint:
     # List of jobs that will run
     jobs:
-      - bobby
-      - sally
+      - build
+      - hithere
+      - test:
+        requires:
+          - hithere
