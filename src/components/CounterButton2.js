@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class CounterButton2 extends Component {
   constructor(props) {
-            super(props);
+    super(props);
     this.state = { count: 0 };
   }
 
-      shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     if (this.state.count !== nextState.count) {
-                          return true;
+      return true;
     }
-            return false;
+    return false;
   }
 
   render() {
     return (
       <button
-        data-testid='counter'
+        data-testid="counter"
         color={this.props.color}
-        onClick={() => this.setState(state => ({ count: state.count + 1 }))}>
+        onClick={() => this.setState((state) => ({ count: state.count + 1 }))}
+      >
         Count: {this.state.count}
       </button>
     );
   }
 }
 
-export default CounterButton2
+export default CounterButton2;
